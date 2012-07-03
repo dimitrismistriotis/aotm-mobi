@@ -3,9 +3,20 @@
 <head>
 <title>Cordova</title>
 <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/libs/underscore/underscore-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/libs/backbone/backbone-min.js"></script>
 </head>
 <body>
 <h1>Hello World</h1>
 hi
+<script>
+Person = Backbone.Model.extend({
+        initialize: function(){
+            alert("Welcome to this world");
+        }
+    });
+    
+    var person = new Person;
+</script>
 </body>
 </html>
