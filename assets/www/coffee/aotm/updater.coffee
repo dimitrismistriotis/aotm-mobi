@@ -1,5 +1,5 @@
 define(["aotm/album"], (album) ->
-  console.log('call to updater')
+  #console.log('call to updater')
 
   if not localStorage?
     console.error('Cannot update without local storage')
@@ -8,11 +8,11 @@ define(["aotm/album"], (album) ->
   store = new Store("albums_backbone")
 
   updateLocalDatabase = (data) ->
-    console.log('call to update local database')
+    #console.log('call to update local database')
     for i in data
       currentAlbum = new album.Model()
       currentAlbum.set(i)
-      console.log(currentAlbum)
+      #console.log(currentAlbum)
       # localStorage might throw an error (if turned off or maximum capacity)
       try
         currentAlbum.save()
@@ -23,10 +23,10 @@ define(["aotm/album"], (album) ->
     return
 
   updateFromUrlIfOlderThan = (url = "http://www.albumofthemonth.net/albums.json", secondsOverlap = 60*60*12) ->
-    console.log("url: #{url} with overlap: #{secondsOverlap}")
+    #console.log("url: #{url} with overlap: #{secondsOverlap}")
     lastUpdateTime = -999
     if secondsOverlap < 0
-      console.log('always update')
+      #console.log('always update')
 
       jQuery.getJSON(url + "?callback=?", null, (results) ->
         updateLocalDatabase(results)
