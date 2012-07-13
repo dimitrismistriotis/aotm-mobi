@@ -31,6 +31,8 @@ define(() ->
       for i in [0...l]
         console.log(i)
         item = this.collection.at(i)
+        alView = new AlbumView({model: item})
+        console.log(alView.render())
         console.log(item.get("band"))
       
       $(this.el).html(this.template(this.model.toJSON()))
@@ -40,11 +42,13 @@ define(() ->
     initialize: () ->
       console.log("Alerts suck.")
     render: () ->
-      console.log("inside render")
+      console.log("inside render of album")
+      console.log(this.model.toJSON())
       # Compile the template using underscore
-      template = _.template( $("#search_template").html() , {} )
+      template = _.template( $("#album_template").html() , this.model.toJSON() )
       # Load the compiled HTML into the Backbone "el"
       console.log(this.el)
+      console.log(template)
       $(this.el).html(template)
   })
     
