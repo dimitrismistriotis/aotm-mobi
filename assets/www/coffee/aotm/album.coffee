@@ -20,36 +20,38 @@ define(() ->
         this.fetch()
   )
 
-  # Decided to use this:
-  # http://stackoverflow.com/questions/5651629/backbone-js-collections-and-views
   AlbumsView = Backbone.View.extend({
     el: $('#mainAlbums'),
     template: _.template($('#albums_template').html())
     render: () ->
-      console.log('render')
       l = this.collection.length
+      albumsHtml = ""
       for i in [0...l]
-        console.log(i)
         item = this.collection.at(i)
         alView = new AlbumView({model: item})
-        console.log(alView.render())
-        console.log(item.get("band"))
+        #console.log(alView.render())
+        alView.render()
+        albumsHtml += alView.html_result
       
-      $(this.el).html(this.template(this.model.toJSON()))
+      #console.log("total html:")
+      #console.log(albumsHtml)
+      $(this.el).html(this.template({'albums_list_items' : albumsHtml}))
   })
 
   AlbumView = Backbone.View.extend({
     initialize: () ->
-      console.log("Alerts suck.")
+      # Do nothing for the moment
+      return
     render: () ->
-      console.log("inside render of album")
-      console.log(this.model.toJSON())
+      #console.log("inside render of album")
+      #console.log(this.model.toJSON())
       # Compile the template using underscore
       template = _.template( $("#album_template").html() , this.model.toJSON() )
       # Load the compiled HTML into the Backbone "el"
-      console.log(this.el)
-      console.log(template)
+      #console.log(this.el)
+      #console.log(template)
       $(this.el).html(template)
+      this.html_result = template
   })
     
 

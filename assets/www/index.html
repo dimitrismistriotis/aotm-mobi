@@ -13,15 +13,25 @@
 <div id="mainAlbums">&nbsp;
 </div>
 <script type="text/template" id="albums_template">
-  <ul id="gaggle-list">
-  <% _.each(gaggle, function(goose) { %>
-     <li><%- goose.name %></li>
-  <% }); %>
+  <ul id="albums_list">
+    <%= albums_list_items %>
   </ul>
 </script>
 <script type="text/template" id="album_template">
-  <li id="album_">
-    band: <%- band %>
+  <li id="album_<%- id %>">
+    band: <%- band %><br />
+    category: <%- category.name %><br />
+    category_id: <%- category_id %><br />
+    cover_location: <%- cover_location %><br />
+    created_at: <%- created_at %><br />
+    full_review: <%- full_review %><br />
+    id: <%- id %> <br />		
+    mini_review: <%- mini_review %><br />		
+    release_date: <%- release_date %><br />		
+    title: <%- title %><br />		
+    updated_at: <%- updated_at %><br />		
+    user: <%- user %><br />
+    user_id: <%- user_id %><br />		
   </li>
 </script>
 </body>
