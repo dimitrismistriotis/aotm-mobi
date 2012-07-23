@@ -15,12 +15,12 @@ The following tools are required to be installed before starting to work with ao
 
 Additionally the following libraries/environments are used for the project. Since they are already included, there is no need to download them:
 
-1. [Phonegap - Cordova 1.8.1](http://phonegap.com/)
+1. [Phonegap - Cordova 1.8.1](http://phonegap.com/).
 2. [Require.js](http://requirejs.org/).
 3. [Backbone.js](http://backbonejs.org/).
 
 Installation
 ------------------------------------
-1. Install coffee-script (execute command: npm install -g coffee-script)
-2. Install Jitter (execute command: npm install -g jitter)
+1. Install coffee-script (execute command: npm install -g coffee-script).
+2. Install Jitter (execute command: npm install -g jitter).
 3. Download aotm source code from github and import project to Eclipse.
