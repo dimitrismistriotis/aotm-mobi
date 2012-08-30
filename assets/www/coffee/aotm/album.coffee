@@ -18,6 +18,8 @@ define(() ->
     localStorage: new Store("albums_backbone")
     initialize: () ->
         this.fetch()
+    comparator: (album) ->
+      return - parseInt(album.get("id"))
   )
 
   AlbumsView = Backbone.View.extend({
@@ -25,6 +27,7 @@ define(() ->
     template: _.template($('#albums_template').html())
     render: () ->
       l = this.collection.length
+      this.collection.sort()
       albumsHtml = ""
       for i in [0...l]
         item = this.collection.at(i)
