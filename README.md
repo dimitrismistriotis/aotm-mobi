@@ -15,7 +15,7 @@ The following tools are required to be installed before starting to work with ao
 
 Additionally the following libraries/environments are used for the project. Since they are already included, there is no need to download them:
 
-1. [Phonegap - Cordova 1.8.1](http://phonegap.com/).
+1. [Phonegap - PhoneGap 2.0.0](http://phonegap.com/).
 2. [Require.js](http://requirejs.org/).
 3. [Backbone.js](http://backbonejs.org/).
 
