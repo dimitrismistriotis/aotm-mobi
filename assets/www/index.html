@@ -15,6 +15,42 @@
 <script type="text/javascript" charset="utf-8" src="./js/libs/backbone/backbone-localstorage.js"></script>
 </head>
 <body>
+<style>
+	div#menu {
+		width: 30%;
+		background-color: yellow;
+		position:absolute;
+		bottom: 0;
+		left: 35%;
+		display:none;
+	}
+	</style>
+<script>	
+	var menuOpen = false;
+	var menuDiv = "";
+
+	function init() {
+		document.addEventListener("deviceready", startup, false);
+	}
+
+	function doMenu() {
+		console.log("The menu was clicked...");
+		if(menuOpen) {
+			console.log("close the menu");
+			menuDiv.style.display="none";
+			menuOpen = false;
+		} else {
+			console.log("open the menu");
+			menuDiv.style.display="block";
+			menuOpen = true;
+		}
+
+	}
+	</script>
+  <div id="menu">
+	<a href="">Option One</a><br/>
+	<a href="">Option Two</a>
+</div>
 <div class="container-fluid">
   <div class="offset1 span8">
     <h1>Album of the Month</h1>
