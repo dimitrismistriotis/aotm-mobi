@@ -19,10 +19,12 @@ require(["jquery", "aotm/album", "aotm/updater"], ($, album, updater) ->
     console.log('toggle Menu')
     if $('#menu').is(':visible')
       console.log('visible switching off')
-      $('#menu').hide()
+      $('.menu').hide()
+      $('.content').show()
     else
       console.log('nonvisible switching on')
-      $('#menu').show()
+      $('.menu').show()
+      $('.content').hide()
 
   # End of menu setup
 
