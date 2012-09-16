@@ -6,7 +6,7 @@ require(["jquery", "aotm/album", "aotm/updater"], ($, album, updater) ->
 
   document.body.onload = () ->
     console.log("onload")
-    alert("onload")
+    #alert("onload")
     document.addEventListener("deviceready", startup, false)
     if (previous_onload and getClass.call(previous_onload) == '[object Function]')
       previous_onload()
