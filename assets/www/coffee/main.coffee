@@ -17,7 +17,14 @@ require(["jquery", "aotm/album", "aotm/updater"], ($, album, updater) ->
 
   toggleMenu = () ->
     console.log('toggle Menu')
-    #TODO: call to appropriate route based on menu visibility
+    if $('#menu').is(':visible')
+      console.log('visible switching off')
+      $('#menu').hide()
+    else
+      console.log('nonvisible switching on')
+      $('#menu').show()
+
+  # End of menu setup
 
 
   # Display local stored collection:
