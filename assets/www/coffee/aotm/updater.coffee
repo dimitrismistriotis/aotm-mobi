@@ -1,4 +1,4 @@
-define(["aotm/album"], (album) ->
+define(["aotm/album", "aotm/category"], (album, category) ->
   #console.log('call to updater')
 
   if not localStorage?
@@ -22,16 +22,43 @@ define(["aotm/album"], (album) ->
         console.error(error)
     return
 
-  updateFromUrlIfOlderThan = (url = "http://www.albumofthemonth.net/albums.json", secondsOverlap = 60*60*12) ->
+  updateLocalCategoriesDatabase = (data) ->
+    console.log("categories upd")
+   
+    categories = new category.Collection()
+    categories.fetch()
+    console.log(categories)
+    for i in data
+      console.log(i)
+      currentID = parseInt(i.id)
+
+      currentCategory = new category.Model()
+      currentCategory.set(i)
+      
+      console.log(categories.get(currentCategory))
+
+
+      console.log("end: categories upd")
+    return
+
+  updateFromUrlIfOlderThan = (albumsUrl = "http://www.albumofthemonth.net/albums.json",
+    secondsOverlap = 60*60*12,
+    categoriesUrl = "http://www.albumofthemonth.net/categories/getall.json",
+    categoriesOverlap = 60*60*12*5) ->
     #console.log("url: #{url} with overlap: #{secondsOverlap}")
     lastUpdateTime = -999
     if secondsOverlap < 0
       #console.log('always update')
 
-      jQuery.getJSON(url + "?callback=?", null, (results) ->
+      jQuery.getJSON(albumsUrl + "?callback=?", null, (results) ->
         updateLocalDatabase(results)
       )
 
+      # Extra call for categories
+      jQuery.getJSON(categoriesUrl + "?callback=?", null, (results) ->
+        console.log("categories....")
+        updateLocalCategoriesDatabase(results)
+      )
     return
 
 
