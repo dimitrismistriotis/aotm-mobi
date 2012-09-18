@@ -26,6 +26,7 @@ require(["jquery", "aotm/album", "aotm/updater"], ($, album, updater) ->
       $('.menu').show()
       $('.content').hide()
 
+  $('#aotmSettingsLink').on("click", toggleMenu)
   # End of menu setup
 
 
