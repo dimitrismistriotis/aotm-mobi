@@ -5,3 +5,7 @@ div#menu {
   bottom: 0;
   display:none;
 }
+
+.btn-categories {
+  margin-top: 5px;
+}

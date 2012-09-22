@@ -43,13 +43,14 @@ define(() ->
       console.log("initialize")
     render: () ->
       console.log("cats render")
+      categoriesHtml = ""
       categories = new Categories()
       while (c = categories.shift())
         console.log(c)
-        catHtml = "#{c.id} -- <a href=\"#\" class=\"btn btn-success #{if c.get("selected") == "Y" then "" else "disabled"} \" data-id=\"#{c.get("id")}\" data-selected=\"#{c.get("selected")}\">#{c.get("name")}</a>"
-        console.log(catHtml)
-        $(this.el).html( catHtml )
-      #console.log(categories)
+        catHtml = "<a href=\"#\" class=\"btn-categories btn btn-success #{if c.get("selected") == "Y" then "" else "disabled"} \" data-id=\"#{c.get("id")}\" data-selected=\"#{c.get("selected")}\">#{c.get("name")}</a><br />"
+        categoriesHtml += catHtml
+
+      $(this.el).html(categoriesHtml)
 
       $(this.el).find("a").each( (i, element) ->
         console.log(i)
