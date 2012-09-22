@@ -23,22 +23,21 @@ define(["aotm/album", "aotm/category"], (album, category) ->
     return
 
   updateLocalCategoriesDatabase = (data) ->
-    console.log("categories upd")
+    #console.log("categories upd")
    
     categories = new category.Collection()
     categories.fetch()
     console.log(categories)
     for i in data
-      console.log(i)
+      #console.log(i)
       currentID = parseInt(i.id)
 
       currentCategory = new category.Model()
       currentCategory.set(i)
+      currentCategory.save()
       
-      console.log(categories.get(currentCategory))
-
-
-      console.log("end: categories upd")
+      #console.log(categories.get(currentCategory))
+    #console.log("end: categories upd")
     return
 
   updateFromUrlIfOlderThan = (albumsUrl = "http://www.albumofthemonth.net/albums.json",
