@@ -1,4 +1,4 @@
-require(["jquery", "aotm/album", "aotm/updater"], ($, album, updater) ->
+require(["jquery", "aotm/category", "aotm/album", "aotm/updater"], ($, category, album, updater) ->
   updater.updateFromUrlIfOlderThan("http://www.albumofthemonth.net/albums.json", -1)
 
   #Setup menu
@@ -28,7 +28,12 @@ require(["jquery", "aotm/album", "aotm/updater"], ($, album, updater) ->
 
   $('#aotmSettingsLink').on("click", toggleMenu)
   # End of menu setup
-
+  
+  # Categories Menu
+  categoriesView = new category.CategoriesView()
+  console.log(categoriesView)
+  categoriesView.render()
+  # End: Categories Menu
 
   # Display local stored collection:
   localAlbumCollection = new album.Collection()

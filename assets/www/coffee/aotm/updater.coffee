@@ -53,9 +53,9 @@ define(["aotm/album", "aotm/category"], (album, category) ->
         updateLocalDatabase(results)
       )
 
-      # Extra call for categories
+      # Additional call for categories
       jQuery.getJSON(categoriesUrl + "?callback=?", null, (results) ->
-        console.log("categories....")
+        #console.log("categories....")
         updateLocalCategoriesDatabase(results)
       )
     return
