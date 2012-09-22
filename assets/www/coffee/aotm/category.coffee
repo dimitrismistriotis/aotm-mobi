@@ -11,6 +11,13 @@ define(() ->
     currentCategory.save()
 
     this.setAttribute("data-selected", nextValue)
+    # visual:
+    if (nextValue == "Y")
+      $(this).removeClass("disabled")
+    else if (nextValue == "N")
+      $(this).addClass("disabled")
+    else
+      console.error("Unknown selected value reached")
     console.log("swapping #{id} to #{nextValue}")
 
   Category = Backbone.Model.extend(
@@ -39,7 +46,7 @@ define(() ->
       categories = new Categories()
       while (c = categories.shift())
         console.log(c)
-        catHtml = "#{c.id} -- <a href=\"#\" data-id=\"#{c.get("id")}\" data-selected=\"#{c.get("selected")}\">#{c.get("name")}</a>"
+        catHtml = "#{c.id} -- <a href=\"#\" class=\"btn btn-success #{if c.get("selected") == "Y" then "" else "disabled"} \" data-id=\"#{c.get("id")}\" data-selected=\"#{c.get("selected")}\">#{c.get("name")}</a>"
         console.log(catHtml)
         $(this.el).html( catHtml )
       #console.log(categories)
