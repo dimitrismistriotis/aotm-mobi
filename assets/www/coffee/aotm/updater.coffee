@@ -32,9 +32,14 @@ define(["aotm/album", "aotm/category"], (album, category) ->
       #console.log(i)
       currentID = parseInt(i.id)
 
-      currentCategory = new category.Model()
-      currentCategory.set(i)
-      currentCategory.save()
+      storedCategory = categories.get(currentID)
+      if !storedCategory
+        currentCategory = new category.Model()
+        currentCategory.set(i)
+        currentCategory.save()
+      else
+        storedCategory.set("name", i.name)
+        storedCategory.save()
       
       #console.log(categories.get(currentCategory))
     #console.log("end: categories upd")
