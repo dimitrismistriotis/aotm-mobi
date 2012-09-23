@@ -42,7 +42,7 @@ define(() ->
     initialize: () ->
       console.log("initialize")
     render: () ->
-      console.log("cats render")
+      #console.log("cats render")
       categoriesHtml = ""
       categories = new Categories()
       while (c = categories.shift())
@@ -53,11 +53,11 @@ define(() ->
       $(this.el).html(categoriesHtml)
 
       $(this.el).find("a").each( (i, element) ->
-        console.log(i)
+        #console.log(i)
         element.onclick = swapSelection
       )
 
-      console.log("end: cats render")
+      #console.log("end: cats render")
   })
 
   returns =

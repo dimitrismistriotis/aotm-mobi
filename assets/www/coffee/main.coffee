@@ -27,6 +27,7 @@ require(["jquery", "aotm/category", "aotm/album", "aotm/updater"], ($, category,
       $('.content').hide()
 
   $('#aotmSettingsLink').on("click", toggleMenu)
+  $('#aotmMainPageLink').on("click", toggleMenu)
   # End of menu setup
   
   # Categories Menu
