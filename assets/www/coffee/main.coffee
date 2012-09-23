@@ -1,20 +1,6 @@
 require(["jquery", "aotm/category", "aotm/album", "aotm/updater"], ($, category, album, updater) ->
   updater.updateFromUrlIfOlderThan("http://www.albumofthemonth.net/albums.json", -1)
 
-  # Render albums function (called from settings update and on startup)
-  renderAlbums = () ->
-    console.log("inside render albums")
-    excludedCategories = category.GetExcludedCategories()
-    console.log(excludedCategories)
-
-    localAlbumCollection = new album.Collection()
-    localAlbumCollection.fetch()
-
-    albumMainView = new album.CollectionView({el: $("#mainAlbums"),excludedCategories: excludedCategories})
-    albumMainView.collection = localAlbumCollection
-    albumMainView.render()
-    console.log("end render albums")
-
   #Setup menu
   previous_onload = document.body.onload
 
@@ -35,7 +21,9 @@ require(["jquery", "aotm/category", "aotm/album", "aotm/updater"], ($, category,
       console.log('visible switching off')
       $('.menu').hide()
       $('.content').show()
-      renderAlbums()
+      # Page needs to be fetched again, in order to refresh content with new changes
+      # TODO: maybe just elements should be refreshed.
+      location.reload()
     else
       console.log('nonvisible switching on')
       $('.menu').show()
