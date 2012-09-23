@@ -36,7 +36,7 @@ define(() ->
       for i in [0...l]
         item = this.collection.at(i)
         currentCategoryID = item.get("category_id")
-        console.log("current category id: #{currentCategoryID}")
+        #console.log("current category id: #{currentCategoryID}")
 
         excludedCategory = parseInt(item.get("category_id")) in this.options.excludedCategories
         continue if excludedCategory
