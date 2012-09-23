@@ -1,12 +1,10 @@
 define(() ->
-  console.log("inside category")
-
   swapSelection = () ->
     id = this.getAttribute("data-id")
     nextValue = if (this.getAttribute("data-selected") == "Y") then "N" else "Y"
     categories = new Categories()
     currentCategory = categories.get(id)
-    console.log(currentCategory)
+    #console.log(currentCategory)
     currentCategory.set("selected", nextValue)
     currentCategory.save()
 
@@ -18,7 +16,7 @@ define(() ->
       $(this).addClass("disabled")
     else
       console.error("Unknown selected value reached")
-    console.log("swapping #{id} to #{nextValue}")
+    #console.log("swapping #{id} to #{nextValue}")
 
   Category = Backbone.Model.extend(
     localStorage: new Store("categories_backbone")
@@ -35,10 +33,9 @@ define(() ->
     initialize: () ->
       this.fetch()
     getExcluded: () ->
-      console.log("collection")
-      console.log(new Categories())
+      #console.log("collection")
       return _.filter(_.toArray(new Categories()), (item) ->
-        console.log(item.get("selected"))
+        #console.log(item.get("selected"))
         return item.get("selected") == "N"
       )
   )
@@ -47,13 +44,13 @@ define(() ->
     model: Categories
     el: $('#catemp')
     initialize: () ->
-      console.log("initialize")
+      #console.log("initialize")
     render: () ->
       #console.log("cats render")
       categoriesHtml = ""
       categories = new Categories()
       while (c = categories.shift())
-        console.log(c)
+        #console.log(c)
         catHtml = "<a href=\"#\" class=\"btn-categories btn btn-success #{if c.get("selected") == "Y" then "" else "disabled"} \" data-id=\"#{c.get("id")}\" data-selected=\"#{c.get("selected")}\">#{c.get("name")}</a><br />"
         categoriesHtml += catHtml
 

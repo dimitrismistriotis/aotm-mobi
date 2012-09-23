@@ -25,12 +25,22 @@ define(() ->
   AlbumsView = Backbone.View.extend({
     el: $('#mainAlbums'),
     template: _.template($('#albums_template').html())
+    initialize: () ->
+      # foo
     render: () ->
+      if !this.options.excludedCategories?
+        this.options.excludedCategories = []
       l = this.collection.length
       this.collection.sort()
       albumsHtml = ""
       for i in [0...l]
         item = this.collection.at(i)
+        currentCategoryID = item.get("category_id")
+        console.log("current category id: #{currentCategoryID}")
+
+        excludedCategory = parseInt(item.get("category_id")) in this.options.excludedCategories
+        continue if excludedCategory
+
         alView = new AlbumView({model: item})
         #console.log(alView.render())
         alView.render()

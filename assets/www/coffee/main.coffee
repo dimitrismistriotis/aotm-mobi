@@ -43,7 +43,7 @@ require(["jquery", "aotm/category", "aotm/album", "aotm/updater"], ($, category,
   localAlbumCollection = new album.Collection()
   localAlbumCollection.fetch()
 
-  albumMainView = new album.CollectionView({ el: $("#mainAlbums"), excludedCategories: excludedCategories })
+  albumMainView = new album.CollectionView({el: $("#mainAlbums"),excludedCategories: excludedCategories})
   albumMainView.collection = localAlbumCollection
   albumMainView.render()
   return
