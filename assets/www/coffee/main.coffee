@@ -30,17 +30,20 @@ require(["jquery", "aotm/category", "aotm/album", "aotm/updater"], ($, category,
   $('#aotmMainPageLink').on("click", toggleMenu)
   # End of menu setup
   
-  # Categories Menu
+  # Categories
   categoriesView = new category.CategoriesView()
   console.log(categoriesView)
   categoriesView.render()
-  # End: Categories Menu
+  excludedCategories = category.GetExcludedCategories()
+  console.log("excludedCategories")
+  console.log(excludedCategories)
+  # End: Categories
 
   # Display local stored collection:
   localAlbumCollection = new album.Collection()
   localAlbumCollection.fetch()
 
-  albumMainView = new album.CollectionView({ el: $("#mainAlbums") })
+  albumMainView = new album.CollectionView({ el: $("#mainAlbums"), excludedCategories: excludedCategories })
   albumMainView.collection = localAlbumCollection
   albumMainView.render()
   return

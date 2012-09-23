@@ -34,6 +34,13 @@ define(() ->
     localStorage: new Store("categories_backbone")
     initialize: () ->
       this.fetch()
+    getExcluded: () ->
+      console.log("collection")
+      console.log(new Categories())
+      return _.filter(_.toArray(new Categories()), (item) ->
+        console.log(item.get("selected"))
+        return item.get("selected") == "N"
+      )
   )
 
   CategoriesView = Backbone.View.extend({
@@ -60,8 +67,13 @@ define(() ->
       #console.log("end: cats render")
   })
 
+  getExcludedCategories = () ->
+    categories = new Categories()
+    return (category.get("id") for category in categories.getExcluded())
+
   returns =
     Model: Category
     Collection: Categories
     CategoriesView: CategoriesView
+    GetExcludedCategories: getExcludedCategories
 )
