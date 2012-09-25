@@ -48,6 +48,9 @@ define(() ->
       
       #console.log("total html:")
       #console.log(albumsHtml)
+      if albumsHtml.length == 0
+        albumsHtml = "Could not render albums, please try again later.<br />"
+
       $(this.el).html(this.template({'albums_list_items' : albumsHtml}))
   })
 
