@@ -24,3 +24,7 @@ Installation
 1. Install coffee-script (execute command: npm install -g coffee-script).
 2. Install Jitter (execute command: npm install -g jitter).
 3. Download aotm source code from github and import project to Eclipse.
+
+Play Store
+------------------------------------
+A build of the last tag, is available on [play store](https://play.google.com/store/search?q=net.albumofthemonth.mobi).
