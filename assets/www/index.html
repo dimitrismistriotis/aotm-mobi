@@ -20,7 +20,7 @@
   <div class="offset1 span8 menu" id="menu" style="display: none">
     <h1>Settings</h1>
     <h2>Categories</h2>
-    <p>Select/unselect categories for display. New categories are selected by default</p>
+    <p>Select/deselect categories for display. New categories are automatically selected.</p>
     <div id="catemp" class="menu">&nbsp;</div>
     <br /><a id="aotmMainPageLink" href="#">Main Page</a></div>
     
@@ -41,7 +41,7 @@
 <script type="text/template" id="album_template">
   <div class="row-fluid">
     <div class="offset1 span10" id="album_<%- id %>">
-      <strong><%- band %> &dash; <%- title %></strong> (<em><%- category.name %></em>)<br />
+      <strong><%- band %> &#8208; <%- title %></strong> (<em><%- category.name %></em>)<br />
       <%- release_date %><br />
       <em><%- mini_review %></em><br />
       <!--category_id: <%- category_id %><br /> -->
